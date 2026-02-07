@@ -10,10 +10,121 @@ import {
   Server,
   Terminal,
   Coffee,
+  Globe,
 } from "lucide-react";
 
 function App() {
   const [activeHash, setActiveHash] = useState("#home");
+  const [lang, setLang] = useState("pl"); // 'pl' or 'en'
+
+  const translations = {
+    pl: {
+      nav: {
+        hero: "Home",
+        about: "O mnie",
+        skills: "Technologie",
+        projects: "Projekty",
+        contact: "Kontakt",
+      },
+      hero: {
+        greeting: "Cześć, jestem Podatek",
+        role: "Java & Web Developer",
+        description:
+          "Buduję skalowalne aplikacje backendowe i responsywne webowe interfejsy. Specjalizuję się w ekosystemie Spring Boot oraz React.",
+        projectsBtn: "Zobacz projekty",
+        contactBtn: "Kontakt",
+      },
+      about: {
+        title: "O mnie",
+        p1: "Jestem programistą z pasją do czystego kodu i wydajnych rozwiązań. Moja przygoda z programowaniem zaczęła się od Javy, gdzie głębiej poznałem paradygmaty obiektowe. Obecnie łączę solidny backend (Spring) z nowoczesnym frontendem (React, TypeScript).",
+        p2: "Po godzinach pasjonuję się nowinkami technologicznymi, kawą i open source.",
+        cleanCode: "Clean Code",
+        dbDesign: "Database Design",
+        scalableApi: "Scalable API",
+        modernUi: "Modern UI",
+      },
+      skills: {
+        title: "Technologie",
+        backend: "Backend & Core",
+        frontend: "Frontend & Tools",
+      },
+      projects: {
+        title: "Projekty",
+        p1: {
+          title: "Warehouse Managment System",
+          desc: "System WMS (Warehouse Managment System) do zarządzania robotem od AMR (Automated Mobile Robot) własnej produkcji który porusza się po magazynie i transportuje towary. System umożliwia monitorowanie stanu magazynu, zarządzanie zadaniami dla robota.",
+        },
+        p2: {
+          title: "Task Management API",
+          desc: "REST API do zarządzania zadaniami w zespole. Zabezpieczone przy użyciu JWT. Dokumentacja w Swagger/OpenAPI.",
+        },
+        p3: {
+          title: "Portfolio Dashboard",
+          desc: "Frontendowy dashboard do wizualizacji danych. Tryb dark mode, responsywność i dynamiczne wykresy.",
+        },
+      },
+      contact: {
+        title: "Kontakt",
+        desc: "Obecnie jestem otwarty na nowe propozycje współpracy. Jeśli masz pytanie lub po prostu chcesz się przywitać, napisz do mnie!",
+        btn: "Napisz do mnie",
+      },
+      footer: "© 2024 Jan Developer. Wszystkie prawa zastrzeżone.",
+    },
+    en: {
+      nav: {
+        hero: "Home",
+        about: "About",
+        skills: "Skills",
+        projects: "Projects",
+        contact: "Contact",
+      },
+      hero: {
+        greeting: "Hi, I'm Podatek",
+        role: "Java & Web Developer",
+        description:
+          "I build scalable backend applications and responsive web interfaces. I specialize in the Spring Boot ecosystem and React.",
+        projectsBtn: "View Projects",
+        contactBtn: "Contact",
+      },
+      about: {
+        title: "About Me",
+        p1: "I am a developer with a passion for clean code and efficient solutions. My programming journey started with Java, where I dove deep into object-oriented paradigms. Currently, I combine a solid backend (Spring) with a modern frontend (React, TypeScript).",
+        p2: "After hours, I'm passionate about tech news, coffee, and open source.",
+        cleanCode: "Clean Code",
+        dbDesign: "Database Design",
+        scalableApi: "Scalable API",
+        modernUi: "Modern UI",
+      },
+      skills: {
+        title: "Technologies",
+        backend: "Backend & Core",
+        frontend: "Frontend & Tools",
+      },
+      projects: {
+        title: "Projects",
+        p1: {
+          title: "Warehouse Management System",
+          desc: "WMS (Warehouse Management System) for managing an AMR (Automated Mobile Robot) of my own production that moves around the warehouse and transports goods. The system allows monitoring warehouse status and managing robot tasks.",
+        },
+        p2: {
+          title: "Task Management API",
+          desc: "REST API for team task management. Secured with JWT. Documentation in Swagger/OpenAPI.",
+        },
+        p3: {
+          title: "Portfolio Dashboard",
+          desc: "Frontend dashboard for data visualization. Dark mode, responsiveness, and dynamic charts.",
+        },
+      },
+      contact: {
+        title: "Contact",
+        desc: "I am currently open to new cooperation proposals. If you have a question or just want to say hi, write to me!",
+        btn: "Write to me",
+      },
+      footer: "© 2024 Jan Developer. All rights reserved.",
+    },
+  };
+
+  const t = translations[lang];
 
   const scrollToSection = (e, id) => {
     e.preventDefault();
@@ -24,36 +135,60 @@ function App() {
     }
   };
 
+  const toggleLang = () => {
+    setLang(lang === "pl" ? "en" : "pl");
+  };
+
   return (
     <div className="app">
       <div className="container">
         {/* Navigation */}
         <nav className="navbar">
           <div className="logo">&lt;Dev/&gt;</div>
-          <div className="nav-links">
-            {["hero", "about", "skills", "projects", "contact"].map((item) => (
-              <a
-                key={item}
-                href={`#${item}`}
-                onClick={(e) =>
-                  scrollToSection(e, item === "hero" ? "home" : item)
-                }
-                style={{
-                  color: activeHash === `#${item}` ? "var(--text-primary)" : "",
-                }}
-              >
-                {item.charAt(0).toUpperCase() +
-                  item.slice(1).replace("Hero", "Home")}
-              </a>
-            ))}
+          <div style={{ display: "flex", alignItems: "center", gap: "2rem" }}>
+            <div className="nav-links">
+              {["hero", "about", "skills", "projects", "contact"].map(
+                (item) => (
+                  <a
+                    key={item}
+                    href={`#${item}`}
+                    onClick={(e) =>
+                      scrollToSection(e, item === "hero" ? "home" : item)
+                    }
+                    style={{
+                      color:
+                        activeHash === `#${item}` ? "var(--text-primary)" : "",
+                    }}
+                  >
+                    {t.nav[item]}
+                  </a>
+                ),
+              )}
+            </div>
+
+            {/* Language Switcher */}
+            <button
+              onClick={toggleLang}
+              className="btn btn-outline"
+              style={{
+                padding: "0.5rem 1rem",
+                fontSize: "0.9rem",
+                display: "flex",
+                alignItems: "center",
+                gap: "0.5rem",
+              }}
+            >
+              <Globe size={16} />
+              {lang.toUpperCase()}
+            </button>
           </div>
         </nav>
 
         {/* Hero Section */}
         <section id="home">
           <div style={{ maxWidth: "600px", marginTop: "4rem" }}>
-            <h3>Cześć, jestem Podatek</h3>
-            <h1>Java & Web Developer</h1>
+            <h3>{t.hero.greeting}</h3>
+            <h1>{t.hero.role}</h1>
             <p
               style={{
                 color: "var(--text-secondary)",
@@ -61,8 +196,7 @@ function App() {
                 marginBottom: "2rem",
               }}
             >
-              Buduję skalowalne aplikacje backendowe i responsywne webowe
-              interfejsy. Specjalizuję się w ekosystemie Spring Boot oraz React.
+              {t.hero.description}
             </p>
             <div style={{ display: "flex", gap: "1rem" }}>
               <a
@@ -70,14 +204,14 @@ function App() {
                 className="btn btn-primary"
                 onClick={(e) => scrollToSection(e, "projects")}
               >
-                Zobacz projekty
+                {t.hero.projectsBtn}
               </a>
               <a
                 href="#contact"
                 className="btn btn-outline"
                 onClick={(e) => scrollToSection(e, "contact")}
               >
-                Kontakt
+                {t.hero.contactBtn}
               </a>
             </div>
 
@@ -107,22 +241,15 @@ function App() {
 
         {/* About Section */}
         <section id="about">
-          <h2>O mnie</h2>
+          <h2>{t.about.title}</h2>
           <div className="grid" style={{ gridTemplateColumns: "1fr 1fr" }}>
             <div>
               <p
                 style={{ color: "var(--text-secondary)", marginBottom: "1rem" }}
               >
-                Jestem programistą z pasją do czystego kodu i wydajnych
-                rozwiązań. Moja przygoda z programowaniem zaczęła się od Javy,
-                gdzie głębiej poznałem paradygmaty obiektowe. Obecnie łączę
-                solidny backend (Spring) z nowoczesnym frontendem (React,
-                TypeScript).
+                {t.about.p1}
               </p>
-              <p style={{ color: "var(--text-secondary)" }}>
-                Po godzinach pasjonuję się nowinkami technologicznymi, kawą i
-                open source.
-              </p>
+              <p style={{ color: "var(--text-secondary)" }}>{t.about.p2}</p>
             </div>
             <div
               style={{
@@ -145,7 +272,7 @@ function App() {
                   color="var(--accent)"
                   style={{ marginBottom: "1rem" }}
                 />
-                <span>Clean Code</span>
+                <span>{t.about.cleanCode}</span>
               </div>
               <div
                 className="card"
@@ -161,7 +288,7 @@ function App() {
                   color="var(--accent)"
                   style={{ marginBottom: "1rem" }}
                 />
-                <span>Database Design</span>
+                <span>{t.about.dbDesign}</span>
               </div>
               <div
                 className="card"
@@ -177,7 +304,7 @@ function App() {
                   color="var(--accent)"
                   style={{ marginBottom: "1rem" }}
                 />
-                <span>Scalable API</span>
+                <span>{t.about.scalableApi}</span>
               </div>
               <div
                 className="card"
@@ -193,7 +320,7 @@ function App() {
                   color="var(--accent)"
                   style={{ marginBottom: "1rem" }}
                 />
-                <span>Modern UI</span>
+                <span>{t.about.modernUi}</span>
               </div>
             </div>
           </div>
@@ -201,12 +328,12 @@ function App() {
 
         {/* Skills Section */}
         <section id="skills">
-          <h2>Technologie</h2>
+          <h2>{t.skills.title}</h2>
           <div style={{ marginBottom: "2rem" }}>
             <h3
               style={{ marginBottom: "1rem", color: "var(--text-secondary)" }}
             >
-              Backend & Core
+              {t.skills.backend}
             </h3>
             <div className="skills-grid">
               <div className="skill-item">Java 21</div>
@@ -219,7 +346,7 @@ function App() {
             <h3
               style={{ marginBottom: "1rem", color: "var(--text-secondary)" }}
             >
-              Frontend & Tools
+              {t.skills.frontend}
             </h3>
             <div className="skills-grid">
               <div className="skill-item">JavaScript (ES6+)</div>
@@ -234,7 +361,7 @@ function App() {
 
         {/* Projects Section */}
         <section id="projects">
-          <h2>Projekty</h2>
+          <h2>{t.projects.title}</h2>
           <div className="grid">
             {/* Project 1 */}
             <div className="card">
@@ -256,7 +383,7 @@ function App() {
                   </a>
                 </div>
               </div>
-              <h3>Warehouse Managment System</h3>
+              <h3>{t.projects.p1.title}</h3>
               <p
                 style={{
                   color: "var(--text-secondary)",
@@ -264,14 +391,48 @@ function App() {
                   marginTop: "0.5rem",
                 }}
               >
-                System WMS (Warehouse Managment System) do zarządzania robotem
-                od AMR (Automated Mobile Robot) własnej produkcji który porusza
-                się po magazynie i transportuje towary. System umożliwia
-                monitorowanie stanu magazynu, zarządzanie zadaniami dla robota.
+                {t.projects.p1.desc}
               </p>
               <div>
                 <span className="tag">Python</span>
                 <span className="tag">Arduino</span>
+              </div>
+            </div>
+
+            {/* Project 2 - Using Terminal Icon for Task Managment API (re-adding this if it was lost or adding now) */}
+            <div className="card">
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  marginBottom: "1rem",
+                }}
+              >
+                <Terminal size={32} color="var(--accent)" />
+                <div style={{ display: "flex", gap: "0.5rem" }}>
+                  <a href="#" style={{ color: "var(--text-secondary)" }}>
+                    <Github size={20} />
+                  </a>
+                  <a href="#" style={{ color: "var(--text-secondary)" }}>
+                    <ExternalLink size={20} />
+                  </a>
+                </div>
+              </div>
+              <h3>{t.projects.p2.title}</h3>
+              <p
+                style={{
+                  color: "var(--text-secondary)",
+                  fontSize: "0.9rem",
+                  marginTop: "0.5rem",
+                }}
+              >
+                {t.projects.p2.desc}
+              </p>
+              <div>
+                <span className="tag">Java</span>
+                <span className="tag">Spring Security</span>
+                <span className="tag">PostgreSQL</span>
               </div>
             </div>
 
@@ -295,7 +456,7 @@ function App() {
                   </a>
                 </div>
               </div>
-              <h3>Portfolio Dashboard</h3>
+              <h3>{t.projects.p3.title}</h3>
               <p
                 style={{
                   color: "var(--text-secondary)",
@@ -303,8 +464,7 @@ function App() {
                   marginTop: "0.5rem",
                 }}
               >
-                Frontendowy dashboard do wizualizacji danych. Tryb dark mode,
-                responsywność i dynamiczne wykresy.
+                {t.projects.p3.desc}
               </p>
               <div>
                 <span className="tag">React</span>
@@ -320,7 +480,7 @@ function App() {
           id="contact"
           style={{ textAlign: "center", paddingBottom: "8rem" }}
         >
-          <h2>Kontakt</h2>
+          <h2>{t.contact.title}</h2>
           <p
             style={{
               color: "var(--text-secondary)",
@@ -328,12 +488,11 @@ function App() {
               margin: "0 auto 2rem auto",
             }}
           >
-            Obecnie jestem otwarty na nowe propozycje współpracy. Jeśli masz
-            pytanie lub po prostu chcesz się przywitać, napisz do mnie!
+            {t.contact.desc}
           </p>
           <a href="mailto:hello@example.com" className="btn btn-primary">
             <Mail size={18} />
-            Napisz do mnie
+            {t.contact.btn}
           </a>
         </section>
 
@@ -345,7 +504,7 @@ function App() {
             borderTop: "1px solid var(--border)",
           }}
         >
-          <p>&copy; 2024 Jan Developer. Wszystkie prawa zastrzeżone.</p>
+          <p>{t.footer}</p>
         </footer>
       </div>
     </div>
