@@ -15,7 +15,7 @@ import {
 
 function App() {
   const [activeHash, setActiveHash] = useState("#home");
-  const [lang, setLang] = useState("pl"); // 'pl' or 'en'
+  const [lang, setLang] = useState("pl");
 
   const translations = {
     pl: {
@@ -53,6 +53,10 @@ function App() {
         p1: {
           title: "Warehouse Managment System",
           desc: "System WMS (Warehouse Managment System) do zarządzania robotem od AMR (Automated Mobile Robot) własnej produkcji który porusza się po magazynie i transportuje towary. System umożliwia monitorowanie stanu magazynu, zarządzanie zadaniami dla robota.",
+        },
+        p2: {
+          title: "Aplikacja pogody dla Androida",
+          desc: "Prosta aplikacja pogodowa na Androida, która pokazuje aktualną pogodę. Wykorzystuje API OpenWeatherMap i nowoczesne komponenty Material Design.",
         },
         p3: {
           title: "Portfolio Dashboard",
@@ -101,6 +105,10 @@ function App() {
         p1: {
           title: "Warehouse Management System",
           desc: "WMS (Warehouse Management System) for managing an AMR (Automated Mobile Robot) of my own production that moves around the warehouse and transports goods. The system allows monitoring warehouse status and managing robot tasks.",
+        },
+        p2: {
+          title: "Android Weather App",
+          desc: "A simple weather app for Android that shows the current weather. It uses the OpenWeatherMap API and modern Material Design components.",
         },
         p3: {
           title: "Portfolio Dashboard",
