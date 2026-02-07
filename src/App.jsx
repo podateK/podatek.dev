@@ -54,10 +54,6 @@ function App() {
           title: "Warehouse Managment System",
           desc: "System WMS (Warehouse Managment System) do zarządzania robotem od AMR (Automated Mobile Robot) własnej produkcji który porusza się po magazynie i transportuje towary. System umożliwia monitorowanie stanu magazynu, zarządzanie zadaniami dla robota.",
         },
-        p2: {
-          title: "Task Management API",
-          desc: "REST API do zarządzania zadaniami w zespole. Zabezpieczone przy użyciu JWT. Dokumentacja w Swagger/OpenAPI.",
-        },
         p3: {
           title: "Portfolio Dashboard",
           desc: "Frontendowy dashboard do wizualizacji danych. Tryb dark mode, responsywność i dynamiczne wykresy.",
@@ -105,10 +101,6 @@ function App() {
         p1: {
           title: "Warehouse Management System",
           desc: "WMS (Warehouse Management System) for managing an AMR (Automated Mobile Robot) of my own production that moves around the warehouse and transports goods. The system allows monitoring warehouse status and managing robot tasks.",
-        },
-        p2: {
-          title: "Task Management API",
-          desc: "REST API for team task management. Secured with JWT. Documentation in Swagger/OpenAPI.",
         },
         p3: {
           title: "Portfolio Dashboard",
@@ -396,43 +388,6 @@ function App() {
               <div>
                 <span className="tag">Python</span>
                 <span className="tag">Arduino</span>
-              </div>
-            </div>
-
-            {/* Project 2 - Using Terminal Icon for Task Managment API (re-adding this if it was lost or adding now) */}
-            <div className="card">
-              <div
-                style={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                  marginBottom: "1rem",
-                }}
-              >
-                <Terminal size={32} color="var(--accent)" />
-                <div style={{ display: "flex", gap: "0.5rem" }}>
-                  <a href="#" style={{ color: "var(--text-secondary)" }}>
-                    <Github size={20} />
-                  </a>
-                  <a href="#" style={{ color: "var(--text-secondary)" }}>
-                    <ExternalLink size={20} />
-                  </a>
-                </div>
-              </div>
-              <h3>{t.projects.p2.title}</h3>
-              <p
-                style={{
-                  color: "var(--text-secondary)",
-                  fontSize: "0.9rem",
-                  marginTop: "0.5rem",
-                }}
-              >
-                {t.projects.p2.desc}
-              </p>
-              <div>
-                <span className="tag">Java</span>
-                <span className="tag">Spring Security</span>
-                <span className="tag">PostgreSQL</span>
               </div>
             </div>
 
