@@ -11,6 +11,7 @@ import {
   Terminal,
   Coffee,
   Globe,
+  Smartphone,
 } from "lucide-react";
 
 function App() {
@@ -396,6 +397,43 @@ function App() {
               <div>
                 <span className="tag">Python</span>
                 <span className="tag">Arduino</span>
+              </div>
+            </div>
+
+            {/* Project 2 */}
+            <div className="card">
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  marginBottom: "1rem",
+                }}
+              >
+                <Smartphone size={32} color="var(--accent)" />
+                <div style={{ display: "flex", gap: "0.5rem" }}>
+                  <a href="#" style={{ color: "var(--text-secondary)" }}>
+                    <Github size={20} />
+                  </a>
+                  <a href="#" style={{ color: "var(--text-secondary)" }}>
+                    <ExternalLink size={20} />
+                  </a>
+                </div>
+              </div>
+              <h3>{t.projects.p2.title}</h3>
+              <p
+                style={{
+                  color: "var(--text-secondary)",
+                  fontSize: "0.9rem",
+                  marginTop: "0.5rem",
+                }}
+              >
+                {t.projects.p2.desc}
+              </p>
+              <div>
+                <span className="tag">Kotlin</span>
+                <span className="tag">Android SDK</span>
+                <span className="tag">Material Design</span>
               </div>
             </div>
 
