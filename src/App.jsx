@@ -12,6 +12,9 @@ import {
   Coffee,
   Globe,
   Smartphone,
+  Scissors,
+  ShoppingCart,
+  FlaskConical,
 } from "lucide-react";
 
 function App() {
@@ -63,13 +66,25 @@ function App() {
           title: "Portfolio Dashboard",
           desc: "Frontendowy dashboard do wizualizacji danych. Tryb dark mode, responsywność i dynamiczne wykresy.",
         },
+        p4: {
+          title: "Template strony dla salonu fryzjerskiego",
+          desc: "Szablon strony internetowej dla salonu fryzjerskiego, zaprojektowany z myślą o responsywności i estetyce.",
+        },
+        p5: {
+          title: "Template strony dla sklepu z elektroniką",
+          desc: "Szablon strony internetowej dla sklepu z elektroniką, z nowoczesnym designem i funkcjonalnościami e-commerce.",
+        },
+        p6: {
+          title: "ChemiaAPP",
+          desc: "Aplikacja wspierająca naukę chemii, z interaktywnymi materiałami i narzędziami dla uczniów.",
+        },
       },
       contact: {
         title: "Kontakt",
         desc: "Obecnie jestem otwarty na nowe propozycje współpracy. Jeśli masz pytanie lub po prostu chcesz się przywitać, napisz do mnie!",
         btn: "Napisz do mnie",
       },
-      footer: "© 2024 Jan Developer. Wszystkie prawa zastrzeżone.",
+      footer: "© 2026 Podatek. Wszystkie prawa zastrzeżone.",
     },
     en: {
       nav: {
@@ -115,13 +130,25 @@ function App() {
           title: "Portfolio Dashboard",
           desc: "Frontend dashboard for data visualization. Dark mode, responsiveness, and dynamic charts.",
         },
+        p4: {
+          title: "Hair Salon Website Template",
+          desc: "A responsive and elegant website template for a hair salon, designed with a focus on usability and visual style.",
+        },
+        p5: {
+          title: "Electronics Store Website Template",
+          desc: "A modern electronics store template with a clean design and e-commerce functionality.",
+        },
+        p6: {
+          title: "ChemiaAPP",
+          desc: "An app supporting chemistry learning with interactive materials and useful tools for students.",
+        },
       },
       contact: {
         title: "Contact",
         desc: "I am currently open to new cooperation proposals. If you have a question or just want to say hi, write to me!",
         btn: "Write to me",
       },
-      footer: "© 2024 Jan Developer. All rights reserved.",
+      footer: "© 2026 Podatek. All rights reserved.",
     },
   };
 
@@ -337,10 +364,10 @@ function App() {
               {t.skills.backend}
             </h3>
             <div className="skills-grid">
-              <div className="skill-item">Java 21</div>
+              <div className="skill-item">Java</div>
+              <div className="skill-item">Python</div>
               <div className="skill-item">PostgreSQL</div>
               <div className="skill-item">Docker</div>
-              <div className="skill-item">Maven/Gradle</div>
             </div>
           </div>
           <div>
@@ -352,10 +379,10 @@ function App() {
             <div className="skills-grid">
               <div className="skill-item">JavaScript (ES6+)</div>
               <div className="skill-item">React</div>
-              <div className="skill-item">HTML5 & CSS3</div>
+              <div className="skill-item">Astro</div>
+              <div className="skill-item">Tailwind CSS</div>
+              <div className="skill-item">Kotlin</div>
               <div className="skill-item">Git</div>
-              <div className="skill-item">IntelliJ IDEA</div>
-              <div className="skill-item">VS Code</div>
             </div>
           </div>
         </section>
@@ -376,10 +403,20 @@ function App() {
               >
                 <Coffee size={32} color="var(--accent)" />
                 <div style={{ display: "flex", gap: "0.5rem" }}>
-                  <a href="#" style={{ color: "var(--text-secondary)" }}>
+                  <a
+                    href="https://github.com/podateK/WMS"
+                    target="_blank"
+                    rel="noreferrer"
+                    style={{ color: "var(--text-secondary)" }}
+                  >
                     <Github size={20} />
                   </a>
-                  <a href="#" style={{ color: "var(--text-secondary)" }}>
+                  <a
+                    href="https://github.com/podateK/WMS"
+                    target="_blank"
+                    rel="noreferrer"
+                    style={{ color: "var(--text-secondary)" }}
+                  >
                     <ExternalLink size={20} />
                   </a>
                 </div>
@@ -449,10 +486,20 @@ function App() {
               >
                 <Layout size={32} color="var(--accent)" />
                 <div style={{ display: "flex", gap: "0.5rem" }}>
-                  <a href="#" style={{ color: "var(--text-secondary)" }}>
+                  <a
+                    href="https://github.com/podateK/podatek.dev"
+                    target="_blank"
+                    rel="noreferrer"
+                    style={{ color: "var(--text-secondary)" }}
+                  >
                     <Github size={20} />
                   </a>
-                  <a href="#" style={{ color: "var(--text-secondary)" }}>
+                  <a
+                    href="https://github.com/podateK/podatek.dev"
+                    target="_blank"
+                    rel="noreferrer"
+                    style={{ color: "var(--text-secondary)" }}
+                  >
                     <ExternalLink size={20} />
                   </a>
                 </div>
@@ -471,6 +518,145 @@ function App() {
                 <span className="tag">React</span>
                 <span className="tag">Vite</span>
                 <span className="tag">Chart.js</span>
+              </div>
+            </div>
+
+            {/* Project 4 */}
+            <div className="card">
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  marginBottom: "1rem",
+                }}
+              >
+                <Scissors size={32} color="var(--accent)" />
+                <div style={{ display: "flex", gap: "0.5rem" }}>
+                  <a
+                    href="https://github.com/podateK/template-fryzjer"
+                    target="_blank"
+                    rel="noreferrer"
+                    style={{ color: "var(--text-secondary)" }}
+                  >
+                    <Github size={20} />
+                  </a>
+                  <a
+                    href="https://github.com/podateK/template-fryzjer"
+                    target="_blank"
+                    rel="noreferrer"
+                    style={{ color: "var(--text-secondary)" }}
+                  >
+                    <ExternalLink size={20} />
+                  </a>
+                </div>
+              </div>
+              <h3>{t.projects.p4.title}</h3>
+              <p
+                style={{
+                  color: "var(--text-secondary)",
+                  fontSize: "0.9rem",
+                  marginTop: "0.5rem",
+                }}
+              >
+                {t.projects.p4.desc}
+              </p>
+              <div>
+                <span className="tag">Astro</span>
+                <span className="tag">Tailwind CSS</span>
+              </div>
+            </div>
+
+            {/* Project 5 */}
+            <div className="card">
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  marginBottom: "1rem",
+                }}
+              >
+                <ShoppingCart size={32} color="var(--accent)" />
+                <div style={{ display: "flex", gap: "0.5rem" }}>
+                  <a
+                    href="https://github.com/podateK/template-elektryk"
+                    target="_blank"
+                    rel="noreferrer"
+                    style={{ color: "var(--text-secondary)" }}
+                  >
+                    <Github size={20} />
+                  </a>
+                  <a
+                    href="https://github.com/podateK/template-elektryk"
+                    target="_blank"
+                    rel="noreferrer"
+                    style={{ color: "var(--text-secondary)" }}
+                  >
+                    <ExternalLink size={20} />
+                  </a>
+                </div>
+              </div>
+              <h3>{t.projects.p5.title}</h3>
+              <p
+                style={{
+                  color: "var(--text-secondary)",
+                  fontSize: "0.9rem",
+                  marginTop: "0.5rem",
+                }}
+              >
+                {t.projects.p5.desc}
+              </p>
+              <div>
+                <span className="tag">Astro</span>
+                <span className="tag">Tailwind CSS</span>
+                <span className="tag">E-commerce</span>
+              </div>
+            </div>
+
+            {/* Project 6 */}
+            <div className="card">
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  marginBottom: "1rem",
+                }}
+              >
+                <FlaskConical size={32} color="var(--accent)" />
+                <div style={{ display: "flex", gap: "0.5rem" }}>
+                  <a
+                    href="https://github.com/podateK/ChemiaAPP"
+                    target="_blank"
+                    rel="noreferrer"
+                    style={{ color: "var(--text-secondary)" }}
+                  >
+                    <Github size={20} />
+                  </a>
+                  <a
+                    href="https://github.com/podateK/ChemiaAPP"
+                    target="_blank"
+                    rel="noreferrer"
+                    style={{ color: "var(--text-secondary)" }}
+                  >
+                    <ExternalLink size={20} />
+                  </a>
+                </div>
+              </div>
+              <h3>{t.projects.p6.title}</h3>
+              <p
+                style={{
+                  color: "var(--text-secondary)",
+                  fontSize: "0.9rem",
+                  marginTop: "0.5rem",
+                }}
+              >
+                {t.projects.p6.desc}
+              </p>
+              <div>
+                <span className="tag">Java</span>
+                <span className="tag">Android</span>
               </div>
             </div>
           </div>
