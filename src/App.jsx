@@ -677,7 +677,7 @@ function App() {
           >
             {t.contact.desc}
           </p>
-          <a href="mailto:hello@example.com" className="btn btn-primary">
+          <a href="mailto:podatek306@gmail.com" className="btn btn-primary">
             <Mail size={18} />
             {t.contact.btn}
           </a>
