@@ -16,7 +16,7 @@ import {
   ShoppingCart,
   FlaskConical,
 } from "lucide-react";
-
+import { Analytics } from "@paczesny/analytics";
 function App() {
   const [activeHash, setActiveHash] = useState("#home");
   const [lang, setLang] = useState("pl");
@@ -694,6 +694,7 @@ function App() {
           <p>{t.footer}</p>
         </footer>
       </div>
+      <Analytics siteId="por_live_0a05" />
     </div>
   );
 }
