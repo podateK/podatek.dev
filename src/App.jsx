@@ -17,8 +17,6 @@ import {
   FlaskConical,
 } from "lucide-react";
 import { Analytics } from "@paczesny/analytics";
-import TerminalCard from "./TerminalCard";
-
 function App() {
   const [activeHash, setActiveHash] = useState("#home");
   const [lang, setLang] = useState("pl");
@@ -216,69 +214,56 @@ function App() {
 
         {/* Hero Section */}
         <section id="home">
-          <div
-            style={{
-              display: "flex",
-              flexWrap: "wrap",
-              justifyContent: "space-between",
-              alignItems: "center",
-              gap: "2.5rem",
-              marginTop: "4rem",
-            }}
-          >
-            <div style={{ maxWidth: "600px" }}>
-              <h3>{t.hero.greeting}</h3>
-              <h1>{t.hero.role}</h1>
-              <p
-                style={{
-                  color: "var(--text-secondary)",
-                  fontSize: "1.25rem",
-                  marginBottom: "2rem",
-                }}
+          <div style={{ maxWidth: "600px", marginTop: "4rem" }}>
+            <h3>{t.hero.greeting}</h3>
+            <h1>{t.hero.role}</h1>
+            <p
+              style={{
+                color: "var(--text-secondary)",
+                fontSize: "1.25rem",
+                marginBottom: "2rem",
+              }}
+            >
+              {t.hero.description}
+            </p>
+            <div style={{ display: "flex", gap: "1rem" }}>
+              <a
+                href="#projects"
+                className="btn btn-primary"
+                onClick={(e) => scrollToSection(e, "projects")}
               >
-                {t.hero.description}
-              </p>
-              <div style={{ display: "flex", gap: "1rem" }}>
-                <a
-                  href="#projects"
-                  className="btn btn-primary"
-                  onClick={(e) => scrollToSection(e, "projects")}
-                >
-                  {t.hero.projectsBtn}
-                </a>
-                <a
-                  href="#contact"
-                  className="btn btn-outline"
-                  onClick={(e) => scrollToSection(e, "contact")}
-                >
-                  {t.hero.contactBtn}
-                </a>
-              </div>
-
-              <div className="social-links">
-                <a
-                  href="https://github.com/Podatek"
-                  target="_blank"
-                  rel="noreferrer"
-                  title="Github"
-                >
-                  <Github />
-                </a>
-                <a
-                  href="https://linkedin.com"
-                  target="_blank"
-                  rel="noreferrer"
-                  title="LinkedIn"
-                >
-                  <Linkedin />
-                </a>
-                <a href="mailto:podatek306@gmail.com" title="Email">
-                  <Mail />
-                </a>
-              </div>
+                {t.hero.projectsBtn}
+              </a>
+              <a
+                href="#contact"
+                className="btn btn-outline"
+                onClick={(e) => scrollToSection(e, "contact")}
+              >
+                {t.hero.contactBtn}
+              </a>
             </div>
 
-            <TerminalCard name="podatek.dev" path="~/home" avatarLetter="P" />
+            <div className="social-links">
+              <a
+                href="https://github.com/Podatek"
+                target="_blank"
+                rel="noreferrer"
+                title="Github"
+              >
+                <Github />
+              </a>
+              <a
+                href="https://linkedin.com"
+                target="_blank"
+                rel="noreferrer"
+                title="LinkedIn"
+              >
+                <Linkedin />
+              </a>
+              <a href="mailto:podatek306@gmail.com" title="Email">
+                <Mail />
+              </a>
+            </div>
           </div>
         </section>
 
